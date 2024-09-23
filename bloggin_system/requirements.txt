@@ -1,0 +1,12 @@
+Django
+djangorestframework
+fastapi
+uvicorn
+djangorestframework-simplejwt
+django-redis
+psycopg2-binary
+pyjwt
+pydantic
+django-cors-headers
+python-multipart
+python-dotenv
