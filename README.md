@@ -53,12 +53,16 @@ Welcome to the Blogging System! This project allows users to create, manage, and
    python3 manage.py makemigrations
    python3 manage.py migrate
    ```
-6. Run the Django development server:
+6. Collect static files:
+   ```
+   python3 manage.py collectstatic
+   ```
+7. Run the Django development server:
    ```bash
    python3 manage.py runserver # on port 8000 & redis on port 6379
    python3 manage.py runfastapi # on port 8001
    ```
-7. Access the FastAPI documentation at http://127.0.0.1:8001/docs or http://127.0.0.1:8001/redoc to interact with the API.
+8. Access the FastAPI documentation at http://127.0.0.1:8001/docs or http://127.0.0.1:8001/redoc to interact with the API.
 
 ## 💬 Contributing
 Contributions are welcome! Feel free to submit a pull request or create an issue to discuss improvements.
