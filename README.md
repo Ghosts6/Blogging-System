@@ -32,7 +32,7 @@ Welcome to the Blogging System! This project allows users to create, manage, and
 ## 📦 Getting Started
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Ghosts6/Blogging-System
    cd blogging_system
    ```
 2. Set up a virtual environment:
