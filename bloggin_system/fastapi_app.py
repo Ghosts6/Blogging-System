@@ -11,8 +11,8 @@ from typing import List
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from service.schemas import ArticleSerializer, UserSerializer  
-from service.models import Article 
+from service.schemas import ArticleSerializer, UserSerializer, FAQSerializer, CategorySerializer ,CommentSerializer
+from service.models import Article, FAQ, Category, Comment
 from rest_framework.authtoken.models import Token
 from django.conf import settings
 
@@ -29,6 +29,18 @@ class ArticleCreate(BaseModel):
     title: str
     content: str
     tags: str
+    
+class FAQCreate(BaseModel):
+    question: str
+    answer: str
+
+class CategoryCreate(BaseModel):
+    name: str
+
+class CommentCreate(BaseModel):
+    content: str
+
+#   Authentication api
 
 @app.post("/signup/")
 def create_user(user: UserCreate):
@@ -54,6 +66,8 @@ def reset_password(username: str, new_password: str):
         return {"message": "Password updated successfully"}
     except ObjectDoesNotExist:
         raise HTTPException(status_code=404, detail="User not found")
+
+#   Articles api
 
 @app.get("/articles/", response_model=List[ArticleSerializer])
 def list_articles():
@@ -103,3 +117,81 @@ def delete_article(article_id: int, token: str = Depends(oauth2_scheme)):
         raise HTTPException(status_code=401, detail="Invalid token")
     except Article.DoesNotExist:
         raise HTTPException(status_code=404, detail="Article not found")
+
+@app.post("/categories/", response_model=CategorySerializer)
+def create_category(category: CategoryCreate):
+    new_category = Category.objects.create(name=category.name)
+    return CategorySerializer.from_orm(new_category)
+
+@app.get("/categories/", response_model=List[CategorySerializer])
+def list_categories():
+    categories = Category.objects.all()
+    return [CategorySerializer.from_orm(category) for category in categories]
+
+@app.post("/articles/{article_id}/comments/", response_model=CommentSerializer)
+def create_comment(article_id: int, comment: CommentCreate, token: str = Depends(oauth2_scheme)):
+    try:
+        user = Token.objects.get(key=token).user
+        article = Article.objects.get(id=article_id)
+        new_comment = Comment.objects.create(article=article, user=user, content=comment.content)
+        return CommentSerializer.from_orm(new_comment)
+    except Token.DoesNotExist:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    except Article.DoesNotExist:
+        raise HTTPException(status_code=404, detail="Article not found")
+
+@app.get("/articles/{article_id}/comments/", response_model=List[CommentSerializer])
+def list_comments(article_id: int):
+    article = Article.objects.get(id=article_id)
+    comments = article.comments.all()
+    return [CommentSerializer.from_orm(comment) for comment in comments]
+
+#   Faqs api
+
+@app.post("/faqs/", response_model=FAQSerializer)
+def create_faq(faq: FAQCreate, token: str = Depends(oauth2_scheme)):
+    try:
+        user = Token.objects.get(key=token).user
+        new_faq = FAQ.objects.create(question=faq.question, answer=faq.answer, created_by=user)
+        return FAQSerializer.from_orm(new_faq)
+    except Token.DoesNotExist:
+        raise HTTPException(status_code=401, detail="Invalid token")
+
+@app.get("/faqs/", response_model=List[FAQSerializer])
+def list_faqs():
+    faqs = FAQ.objects.all()
+    return [FAQSerializer.from_orm(faq) for faq in faqs]
+
+@app.get("/faqs/{faq_id}/", response_model=FAQSerializer)
+def get_faq(faq_id: int):
+    try:
+        faq = FAQ.objects.get(id=faq_id)
+        return FAQSerializer.from_orm(faq)
+    except FAQ.DoesNotExist:
+        raise HTTPException(status_code=404, detail="FAQ not found")
+
+@app.put("/faqs/{faq_id}/", response_model=FAQSerializer)
+def update_faq(faq_id: int, faq: FAQCreate, token: str = Depends(oauth2_scheme)):
+    try:
+        user = Token.objects.get(key=token).user
+        existing_faq = FAQ.objects.get(id=faq_id, created_by=user)
+        existing_faq.question = faq.question
+        existing_faq.answer = faq.answer
+        existing_faq.save()
+        return FAQSerializer.from_orm(existing_faq)
+    except Token.DoesNotExist:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    except FAQ.DoesNotExist:
+        raise HTTPException(status_code=404, detail="FAQ not found")
+
+@app.delete("/faqs/{faq_id}/")
+def delete_faq(faq_id: int, token: str = Depends(oauth2_scheme)):
+    try:
+        user = Token.objects.get(key=token).user
+        faq = FAQ.objects.get(id=faq_id, created_by=user)
+        faq.delete()
+        return {"message": "FAQ deleted successfully"}
+    except Token.DoesNotExist:
+        raise HTTPException(status_code=401, detail="Invalid token")
+    except FAQ.DoesNotExist:
+        raise HTTPException(status_code=404, detail="FAQ not found")

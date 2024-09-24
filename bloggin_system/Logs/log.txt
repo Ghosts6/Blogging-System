@@ -22,3 +22,150 @@
 [2024-09-23 14:31:14] [INFO] [django.utils.autoreload:266] /home/ghost/Desktop/project/github_clone/Blogging-System/bloggin_system/bloggin_system/settings.py changed, reloading.
 [2024-09-23 14:31:14] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
 [2024-09-23 14:31:30] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-09-24 07:43:28] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-09-24 07:43:34] [INFO] [django.server:212] "GET / HTTP/1.1" 301 0
+[2024-09-24 07:43:36] [INFO] [django.server:212] "GET /admin/ HTTP/1.1" 301 0
+[2024-09-24 07:43:36] [INFO] [django.server:212] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00+\x00\x07\x06')
+[2024-09-24 07:43:36] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:43:36] [INFO] [django.server:212] code 400, message Bad request version ('\x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93êê\x00\x00\x003\x04ï\x04í')
+[2024-09-24 07:43:36] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:43:40] [INFO] [django.server:212] code 400, message Bad request version ('\x00\x02\x01\x00\x00')
+[2024-09-24 07:43:40] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:43:40] [INFO] [django.server:212] code 400, message Bad request version ('JJ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93JJ\x00\x00\x00-\x00\x02\x01\x01ÿ\x01\x00\x01\x00\x00')
+[2024-09-24 07:43:40] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:43:40] [INFO] [django.server:212] code 400, message Bad request version ('\x02h2\x08http/1.1\x00')
+[2024-09-24 07:43:40] [INFO] [django.server:212] code 400, message Bad request version ('\x00\x02\x01\x00\x00')
+[2024-09-24 07:43:40] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:43:40] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:05] [INFO] [django.server:212] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00#\x00\x00\x00')
+[2024-09-24 07:44:05] [INFO] [django.server:212] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03&Õ\x99ò\x94m\x86Ï\\4CÄ\x12ÅÅ\x89\x1b\x9c\x80íZÞü')
+[2024-09-24 07:44:05] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:05] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:05] [INFO] [django.server:212] code 400, message Bad request version ('\x02h2\x08http/1.1Di\x00\x05\x00\x03\x02h2\x00-\x00\x02\x01\x01\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00')
+[2024-09-24 07:44:05] [INFO] [django.server:212] code 400, message Bad request version ('\x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06S')
+[2024-09-24 07:44:05] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:05] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:19] [INFO] [django.utils.autoreload:266] /home/ghost/Desktop/project/github_clone/Blogging-System/bloggin_system/bloggin_system/settings.py changed, reloading.
+[2024-09-24 07:44:19] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-09-24 07:44:21] [INFO] [django.server:212] code 400, message Bad request version ('õ\x93¬\x95¼#´$í´£Í')
+[2024-09-24 07:44:21] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:21] [INFO] [django.server:212] code 400, message Bad request version ('*\x9ah\x1487õ|\x1a|ËÙ²\x81ä´!')
+[2024-09-24 07:44:21] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:21] [INFO] [django.server:212] code 400, message Bad request version ('(Û\x81')
+[2024-09-24 07:44:21] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:21] [INFO] [django.server:212] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03w\x15{\x84Ê\x14;L-;oÂ\x08ûç\x8d\\¿ÒìëñÕ\x8eÂ[MDã#\x18\x01')
+[2024-09-24 07:44:21] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:22] [INFO] [django.server:212] code 400, message Bad request version ('#~TBßs\x95\x9f\x03;|c²\\Çº:æÿ\x8e\x80\x13\x87*\x17lÚTå[\x1b\x99¸1øhñç\x0f¾÷É¹\x16xSÎÝo\x1a\x9a9KcÇÆqÏDlîÝ«')
+[2024-09-24 07:44:22] [INFO] [django.server:212] code 400, message Bad request version ('\x9e\x9a\\À\x9bFEÔ\x7f\xad\x00»«b"öX')
+[2024-09-24 07:44:22] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:22] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:22] [INFO] [django.server:212] code 400, message Bad request version ('\x00')
+[2024-09-24 07:44:22] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:22] [INFO] [django.server:212] code 400, message Bad request version ('ªª\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93ZZ\x00\x00\x00')
+[2024-09-24 07:44:22] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:25] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-09-24 07:44:28] [INFO] [django.server:212] code 400, message Bad request version ('\x0f\x00\x90gÙ&Ü¥N0Ir\x84\x0f^H#O')
+[2024-09-24 07:44:28] [INFO] [django.server:212] code 400, message Bad request version ('Ñ')
+[2024-09-24 07:44:28] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:28] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:28] [INFO] [django.server:212] code 400, message Bad request version ('**\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93\x9a\x9a\x00\x00\x00')
+[2024-09-24 07:44:28] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:28] [INFO] [django.server:212] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03½¾\x9a@éD·",}´\x81r`z\x91v\x19§ø¤üägÎ\x1b¥KHD´\x1a')
+[2024-09-24 07:44:28] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:31] [INFO] [django.server:212] code 400, message Bad request version ('ÒPÖÑþ©\x91}eGc\x98\x96¨\x01=Þù\x98\x8e\x12')
+[2024-09-24 07:44:31] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:31] [INFO] [django.server:212] code 400, message Bad request version ('{')
+[2024-09-24 07:44:31] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:41] [INFO] [django.server:212] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03\x93F\x10Ü\x83\x10n\x96cç½iÆW')
+[2024-09-24 07:44:41] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:41] [INFO] [django.server:212] code 400, message Bad request version ('::\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063')
+[2024-09-24 07:44:41] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:41] [INFO] [django.server:212] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06')
+[2024-09-24 07:44:41] [INFO] [django.server:212] code 400, message Bad request syntax ('\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03_±%äquTÝút\x00²ÇLxL\x88\x08Õ\x15\x86x')
+[2024-09-24 07:44:41] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:41] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:44:48] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-09-24 07:45:55] [INFO] [django.server:212] code 400, message Bad request version ('\x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93')
+[2024-09-24 07:45:55] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:45:55] [INFO] [django.server:212] code 400, message Bad request version ('ÊÊ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06s')
+[2024-09-24 07:45:55] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:04] [INFO] [django.server:212] code 400, message Bad request version ('\x8dè\x15Kô¶S©ªÄ')
+[2024-09-24 07:46:04] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:04] [INFO] [django.server:212] code 400, message Bad request version ('¨:ÿ¯\x06Ìá')
+[2024-09-24 07:46:04] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:27] [INFO] [django.utils.autoreload:266] /home/ghost/Desktop/project/github_clone/Blogging-System/bloggin_system/bloggin_system/settings.py changed, reloading.
+[2024-09-24 07:46:28] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-09-24 07:46:29] [INFO] [django.utils.autoreload:266] /home/ghost/Desktop/project/github_clone/Blogging-System/bloggin_system/bloggin_system/settings.py changed, reloading.
+[2024-09-24 07:46:29] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-09-24 07:46:33] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-09-24 07:46:37] [INFO] [django.server:212] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00+\x00\x07\x06')
+[2024-09-24 07:46:37] [INFO] [django.server:212] code 400, message Bad request version ('¼')
+[2024-09-24 07:46:37] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:37] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:37] [INFO] [django.server:212] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03ªXÞÛ_¤Ï\x80Än')
+[2024-09-24 07:46:37] [INFO] [django.server:212] code 400, message Bad request version ("\x07¹\x8d\x9f,\x033Ûe{QÆÛ¥\x04fæRW¤\x18f\x91OÀæ-¨F\x16N9#×Ë\x93H|\x9fäÓ'L")
+[2024-09-24 07:46:37] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:37] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:38] [INFO] [django.server:212] code 400, message Bad request version ('Ìõ¼')
+[2024-09-24 07:46:38] [INFO] [django.server:212] code 400, message Bad request version ('÷\x90k\x87eR%ÑBuA\x00Á\x08Òl')
+[2024-09-24 07:46:38] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:38] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:38] [INFO] [django.server:212] code 400, message Bad request version ('\x9a\x9a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06sjj\x00\x00\x00')
+[2024-09-24 07:46:38] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:38] [INFO] [django.server:212] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03$&>§Û-\x9buE\x84`9Ó%\x89')
+[2024-09-24 07:46:38] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:38] [INFO] [django.server:212] code 400, message Bad request version ('ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06S\x9a\x9a\x00\x00\x00\x12\x00\x00\x00')
+[2024-09-24 07:46:38] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:38] [INFO] [django.server:212] code 400, message Bad request version ('É[[Ã²\x13}%¤"Û\x05\x07ñª¿\x0fÆ°þ[1%\x03*S¡y¥w\\zlpr')
+[2024-09-24 07:46:38] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:38] [INFO] [django.server:212] code 400, message Bad request version ('\x00\x02\x01\x00\x00#\x00\x00\x00')
+[2024-09-24 07:46:38] [INFO] [django.server:212] code 400, message Bad request version ('Ä¥\x96ï¢e=\x86ÇdB\\iû&éu\x07¸Ü@c´iõ¸wµ\x88MN3\x88\x80Ç\x18cµi[\x86\x15\x91')
+[2024-09-24 07:46:38] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:38] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:38] [INFO] [django.server:212] code 400, message Bad request version ('JJ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06s')
+[2024-09-24 07:46:38] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:38] [INFO] [django.server:212] code 400, message Bad request version ('\x03â$0]½X\x8e¿I"÷À\x8cµóÂ\x10\x92B\x06µØ\x07Éµq4w:')
+[2024-09-24 07:46:38] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:39] [INFO] [django.server:212] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06')
+[2024-09-24 07:46:39] [INFO] [django.server:212] code 400, message Bad request version ('ð§Ô;\x00')
+[2024-09-24 07:46:39] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:39] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:39] [INFO] [django.server:212] code 400, message Bad request version ('é°çÌâ\x05Ï]D\x88»Vö')
+[2024-09-24 07:46:39] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:39] [INFO] [django.server:212] code 400, message Bad request version ('\x87Á\xad\x02¨\x05\x9c¯~\x96àw')
+[2024-09-24 07:46:39] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:46:55] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-09-24 07:47:05] [INFO] [django.server:212] "GET / HTTP/1.1" 200 34
+[2024-09-24 07:47:08] [INFO] [django.server:212] "GET /admin/ HTTP/1.1" 302 0
+[2024-09-24 07:47:09] [INFO] [django.server:212] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4181
+[2024-09-24 07:47:09] [WARNING] [django.request:241] Not Found: /static/admin/css/base.css
+[2024-09-24 07:47:09] [WARNING] [django.request:241] Not Found: /static/admin/css/dark_mode.css
+[2024-09-24 07:47:09] [WARNING] [django.request:241] Not Found: /static/admin/js/theme.js
+[2024-09-24 07:47:09] [WARNING] [django.request:241] Not Found: /static/admin/css/nav_sidebar.css
+[2024-09-24 07:47:09] [WARNING] [django.server:212] "GET /static/admin/css/base.css HTTP/1.1" 404 179
+[2024-09-24 07:47:09] [WARNING] [django.request:241] Not Found: /static/admin/js/nav_sidebar.js
+[2024-09-24 07:47:09] [WARNING] [django.server:212] "GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+[2024-09-24 07:47:09] [WARNING] [django.server:212] "GET /static/admin/js/theme.js HTTP/1.1" 404 179
+[2024-09-24 07:47:09] [WARNING] [django.request:241] Not Found: /static/admin/css/login.css
+[2024-09-24 07:47:09] [WARNING] [django.server:212] "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+[2024-09-24 07:47:09] [WARNING] [django.request:241] Not Found: /static/admin/css/responsive.css
+[2024-09-24 07:47:09] [WARNING] [django.server:212] "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+[2024-09-24 07:47:09] [WARNING] [django.server:212] "GET /static/admin/css/login.css HTTP/1.1" 404 179
+[2024-09-24 07:47:09] [WARNING] [django.server:212] "GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+[2024-09-24 07:48:44] [INFO] [django.utils.autoreload:266] /home/ghost/Desktop/project/github_clone/Blogging-System/bloggin_system/bloggin_system/settings.py changed, reloading.
+[2024-09-24 07:51:16] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-09-24 07:51:24] [INFO] [django.server:212] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4272
+[2024-09-24 07:52:51] [INFO] [django.utils.autoreload:266] /home/ghost/Desktop/project/github_clone/Blogging-System/bloggin_system/bloggin_system/settings.py changed, reloading.
+[2024-09-24 07:52:51] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-09-24 07:52:55] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-09-24 07:52:58] [INFO] [django.server:212] "GET /admin/login/?next=/admin/ HTTP/1.1" 301 0
+[2024-09-24 07:52:58] [INFO] [django.server:212] code 400, message Bad request version ('\x01')
+[2024-09-24 07:52:58] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:53:03] [INFO] [django.server:212] code 400, message Bad request version ('$\x00"\x13\x01\x13\x03\x13\x02À+À/Ì©Ì¨À,À0À')
+[2024-09-24 07:53:03] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:53:05] [INFO] [django.server:212] code 400, message Bad request version ('\x9c\x12¤[Ï\x80\x06F|¡O\x9b\x93\x10\x81jÊVý±\x00"\x13\x01\x13\x03\x13\x02À+À/Ì©Ì¨À,À0À')
+[2024-09-24 07:53:05] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-09-24 07:53:19] [INFO] [django.utils.autoreload:266] /home/ghost/Desktop/project/github_clone/Blogging-System/bloggin_system/bloggin_system/settings.py changed, reloading.
+[2024-09-24 07:53:20] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-09-24 07:53:37] [INFO] [django.server:212] code 400, message Bad request version ('F³º\x02%,\x16·`÷³JUZÛ\x00"\x13\x01\x13\x03\x13\x02À+À/Ì©Ì¨À,À0À')
+[2024-09-24 07:53:37] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.

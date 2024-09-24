@@ -8,16 +8,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 
 # Security
+
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-SECURE_HSTS_SECONDS = 3600  
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True  
-SECURE_HSTS_PRELOAD = True  
+# Uncomment on production
+# SECURE_HSTS_SECONDS = 31536000  
+# SECURE_HSTS_INCLUDE_SUBDOMAINS = True  
+# SECURE_HSTS_PRELOAD = True  
 
-# Additional security settings
-SECURE_SSL_REDIRECT = True  
-SESSION_COOKIE_SECURE = True  
-CSRF_COOKIE_SECURE = True 
+# # Additional security settings
+# SECURE_SSL_REDIRECT = True  
+# SESSION_COOKIE_SECURE = True  
+# CSRF_COOKIE_SECURE = True 
 
 DEBUG = False
 
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -78,7 +81,9 @@ ROOT_URLCONF = 'bloggin_system.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'bloggin_system/Template'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -94,26 +99,26 @@ TEMPLATES = [
 # static & media
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# STATIC_URL = '/static/'
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'to_do_list/Static'),
-# ]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+     os.path.join(BASE_DIR, 'bloggin_system/Static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# STORAGES = {
-#     'default': {
-#         'BACKEND': 'django.core.files.storage.FileSystemStorage',
-#     },
-#     'staticfiles': {
-#         'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-#     },
-# }
+STORAGES = {
+     'default': {
+         'BACKEND': 'django.core.files.storage.FileSystemStorage',
+     },
+    'staticfiles': {
+         'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+     },
+}
 
-# MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'
 
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'Media') 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'Media') 
 
-# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 WSGI_APPLICATION = 'bloggin_system.wsgi.application'
 
@@ -159,14 +164,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
-STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
