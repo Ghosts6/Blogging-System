@@ -11,5 +11,5 @@ django-cors-headers
 python-multipart
 python-dotenv
 celery==5.2.7
-django-celery-results
+django-celery-results==2.3.0
 redis
