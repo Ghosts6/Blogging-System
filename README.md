@@ -18,6 +18,7 @@ Welcome to the Blogging System! This project allows users to create, manage, and
 - **Redis**: Used for caching and session management, improving performance.
 - **PostgreSQL**: The database used for storing user and article data.
 - **Python venv**: For managing project dependencies in an isolated environment.
+- **Celery**: Distributed task queue used for handling asynchronous tasks such as background jobs and scheduled tasks, integrated with Redis as a message broker.
 
 ## ⚙️ Configuration
 ### Logging
