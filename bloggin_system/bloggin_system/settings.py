@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_celery_results',
     'rest_framework',
     'service',
 ]
@@ -72,6 +73,14 @@ CACHE_TTL = 60 * 15  # Cache timeout in seconds (e.g., 15 minutes)
 # Use Redis for session storage
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 SESSION_CACHE_ALIAS = 'default'
+
+# Celery Configuration Options
+CELERY_BROKER_URL = 'redis://localhost:6379/0'  
+CELERY_RESULT_BACKEND = 'django-db'  
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'UTC'
 
 # User Authentication
 AUTH_USER_MODEL = 'service.CustomUser'

@@ -169,3 +169,5 @@
 [2024-09-24 07:53:20] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
 [2024-09-24 07:53:37] [INFO] [django.server:212] code 400, message Bad request version ('F³º\x02%,\x16·`÷³JUZÛ\x00"\x13\x01\x13\x03\x13\x02À+À/Ì©Ì¨À,À0À')
 [2024-09-24 07:53:37] [ERROR] [django.server:192] You're accessing the development server over HTTPS, but it only supports HTTP.
+[2024-10-02 14:35:15] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
+[2024-10-02 14:35:55] [INFO] [django.utils.autoreload:668] Watching for file changes with StatReloader
