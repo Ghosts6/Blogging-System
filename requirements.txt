@@ -10,3 +10,6 @@ pydantic
 django-cors-headers
 python-multipart
 python-dotenv
+celery
+django-celery-results
+redis
