@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: ["python", "bloggin_system/manage.py", "runserver", "0.0.0.0:8000"]
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - RUN_MIGRATIONS=true
+    env_file:
+      - ./.env
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  fastapi:
+    build: .
+    command: uvicorn fastapi_app:app --host 0.0.0.0 --port 8001
+    volumes:
+      - .:/app
+    ports:
+      - "8001:8001"
+    env_file:
+      - ./.env
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: "redis:alpine"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  celery:
+    build: .
+    command: celery -A bloggin_system worker -l info
+    volumes:
+      - .:/app
+    env_file:
+      - ./.env
+    depends_on:
+      - redis
+
+  test:
+    build: .
+    command: ["python", "bloggin_system/manage.py", "test", "service"]
+    env_file:
+      - ./.env
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

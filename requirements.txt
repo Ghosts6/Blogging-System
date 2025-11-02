@@ -1,15 +1,26 @@
-Django
+# Frameworks
+Django>=3.2,<4.0
+fastapi>=0.70.0,<1.0
+
+# django extensions
 djangorestframework
-fastapi
-uvicorn
 djangorestframework-simplejwt
+django-cors-headers
+django-celery-results
 django-redis
+
+
+# fastapi extensions
+uvicorn
+
+# other dependencies
+python-multipart
+python-dotenv
 psycopg2-binary
 pyjwt
 pydantic
-django-cors-headers
-python-multipart
-python-dotenv
 celery
-django-celery-results
 redis
+
+# Testing
+pytest

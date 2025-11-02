@@ -29,7 +29,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -41,8 +40,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware', 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -59,7 +57,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',  
+        'LOCATION': 'redis://redis:6379/1',  
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         },
@@ -75,7 +73,7 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 SESSION_CACHE_ALIAS = 'default'
 
 # Celery Configuration Options
-CELERY_BROKER_URL = 'redis://localhost:6379/0'  
+CELERY_BROKER_URL = 'redis://redis:6379/0'  
 CELERY_RESULT_BACKEND = 'django-db'  
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
@@ -87,41 +85,9 @@ AUTH_USER_MODEL = 'service.CustomUser'
 
 ROOT_URLCONF = 'bloggin_system.urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'bloggin_system/Template'),
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
 
-# static & media
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-     os.path.join(BASE_DIR, 'bloggin_system/Static'),
-]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STORAGES = {
-     'default': {
-         'BACKEND': 'django.core.files.storage.FileSystemStorage',
-     },
-    'staticfiles': {
-         'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
-     },
-}
 
 MEDIA_URL = '/media/'
 
@@ -137,8 +103,12 @@ WSGI_APPLICATION = 'bloggin_system.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_DB'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'HOST': 'db',
+        'PORT': 5432,
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
     }
 }
 
@@ -195,7 +165,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',  
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': 'Logs/log.txt',
+            'filename': os.path.join(BASE_DIR, 'Logs/log.txt'),
             'maxBytes': 1024 * 1024 * 15,  
             'backupCount': 10,
             'formatter': 'verbose',
