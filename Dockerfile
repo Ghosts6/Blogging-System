@@ -9,6 +9,11 @@ ENV PYTHONPATH=/app:/app/bloggin_system
 # Set the working directory in the container
 WORKDIR /app
 
+RUN echo "deb http://mirror.leaseweb.com/debian/ trixie main" > /etc/apt/sources.list && \
+    apt-get clean && \
+    apt-get update && \
+    apt-get install -y build-essential libpq-dev
+
 # Install dependencies
 COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt

@@ -1,1 +1,19 @@
 [2025-11-02 21:15:32] [INFO] [django.utils.autoreload:637] Watching for file changes with StatReloader
+[2025-11-03 19:08:24] [INFO] [django.utils.autoreload:637] Watching for file changes with StatReloader
+[2025-11-03 19:08:45] [INFO] [django.server:161] "GET / HTTP/1.1" 200 34
+[2025-11-03 19:08:45] [WARNING] [django.request:224] Not Found: /favicon.ico
+[2025-11-03 19:08:45] [WARNING] [django.server:161] "GET /favicon.ico HTTP/1.1" 404 179
+[2025-11-03 19:08:53] [WARNING] [django.request:224] Not Found: /api/
+[2025-11-03 19:08:53] [WARNING] [django.server:161] "GET /api/ HTTP/1.1" 404 179
+[2025-11-03 19:14:09] [INFO] [django.utils.autoreload:251] /app/bloggin_system/service/models.py changed, reloading.
+[2025-11-03 19:14:09] [INFO] [django.utils.autoreload:637] Watching for file changes with StatReloader
+[2025-11-03 19:19:40] [INFO] [django.utils.autoreload:251] /app/bloggin_system/service/models.py changed, reloading.
+[2025-11-03 19:19:40] [INFO] [django.utils.autoreload:637] Watching for file changes with StatReloader
+[2025-11-03 19:33:16] [INFO] [django.utils.autoreload:667] Watching for file changes with StatReloader
+[2025-11-03 19:35:55] [INFO] [django.utils.autoreload:265] /app/bloggin_system/service/apps.py changed, reloading.
+[2025-11-03 19:35:55] [INFO] [django.utils.autoreload:667] Watching for file changes with StatReloader
+[2025-11-03 19:36:35] [INFO] [django.utils.autoreload:667] Watching for file changes with StatReloader
+[2025-11-03 19:37:29] [INFO] [django.utils.autoreload:667] Watching for file changes with StatReloader
+[2025-11-03 19:38:19] [INFO] [django.utils.autoreload:667] Watching for file changes with StatReloader
+[2025-11-03 19:42:54] [INFO] [django.utils.autoreload:667] Watching for file changes with StatReloader
+[2025-11-03 19:43:31] [INFO] [django.server:213] "GET / HTTP/1.1" 200 34
