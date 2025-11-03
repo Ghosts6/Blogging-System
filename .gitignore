@@ -1,4 +1,6 @@
-# Byte-compiled / optimized / DLL files
+# Migrations
+**/migrations/
+
 __pycache__/
 *.py[cod]
 *$py.class
@@ -12,8 +14,8 @@ build/
 dist/
 *.egg-info/
 
-# Installer logs
-pip-log.txt
+# Log files
+Logs/
 
 # Unit test / coverage reports
 htmlcov/
