@@ -77,12 +77,15 @@ def delete_article(article_id: int, token: str = Depends(oauth2_scheme)):
     except Article.DoesNotExist:
         raise HTTPException(status_code=404, detail="Article not found")
 
+from service.tasks import send_comment_notification_email
+
 @router.post("/articles/{article_id}/comments/", response_model=CommentSerializer)
 def create_comment(article_id: int, comment: CommentCreate, token: str = Depends(oauth2_scheme)):
     try:
         user = Token.objects.get(key=token).user
         article = Article.objects.get(id=article_id)
         new_comment = Comment.objects.create(article=article, user=user, content=comment.content)
+        send_comment_notification_email.delay(article.author.email, article.title)
         return CommentSerializer.from_orm(new_comment)
     except Token.DoesNotExist:
         raise HTTPException(status_code=401, detail="Invalid token")
