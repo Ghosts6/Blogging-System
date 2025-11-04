@@ -11,7 +11,6 @@ Welcome to the Blogging System! This project allows users to create, manage, and
 - **API Improvements**: The API now supports pagination, filtering (by author, category, and tags), and searching (in title and content).
 - **FastAPI Integration**: FastAPI provides a lightweight and high-performance API for article interactions.
 - **Password Management**: Forgot password functionality with secure reset tokens.
-- **Admin Panel**: A Django admin interface for managing users and articles efficiently.
 - **Health Check and Diagnostics**: Endpoints to monitor the service's health and view application diagnostics.
 
 ## 🛠️ Technologies Used

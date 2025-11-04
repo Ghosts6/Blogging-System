@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
+from datetime import datetime
 
 class UserSerializer(BaseModel):
     id: int
@@ -11,11 +12,10 @@ class ArticleSerializer(BaseModel):
     title: str
     content: str
     author: UserSerializer
-    published_date: str
+    published_date: datetime
     tags: Optional[str] = None
 
-    class Config:
-        orm_mode = True
+    model_config = {"from_attributes": True}
         
 class FAQSerializer(BaseModel):
     id: int
@@ -23,22 +23,19 @@ class FAQSerializer(BaseModel):
     answer: str
     created_by: UserSerializer
 
-    class Config:
-        orm_mode = True
+    model_config = {"from_attributes": True}
 
 class CategorySerializer(BaseModel):
     id: int
     name: str
 
-    class Config:
-        orm_mode = True
+    model_config = {"from_attributes": True}
 
 class CommentSerializer(BaseModel):
     id: int
     article_id: int
     user: UserSerializer
     content: str
-    created_at: str
+    created_at: datetime
 
-    class Config:
-        orm_mode = True
+    model_config = {"from_attributes": True}
