@@ -1,3 +1,4 @@
+import sys
 from dotenv import load_dotenv
 from pathlib import Path
 import os
@@ -36,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_celery_results',
     'rest_framework',
+    'rest_framework.authtoken',
     'service',
 ]
 
@@ -192,3 +194,43 @@ LOGGING = {
         },
     },
 }
+
+# Test-specific configuration
+if 'test' in sys.argv or 'pytest' in sys.modules:
+    # Test-specific database configuration
+    # Use keepdb to reuse database between test runs for speed
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'test_db_for_pytest',
+        'USER': os.environ.get('POSTGRES_USER', 'postgres'),
+        'HOST': 'db',
+        'PORT': 5432,
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'postgres'),
+        'TEST': {
+            'NAME': 'test_db_for_pytest',
+        },
+        'CONN_MAX_AGE': 0,  # Disable persistent connections for tests
+    }
+    
+    # Disable password validators for faster tests
+    AUTH_PASSWORD_VALIDATORS = []
+    
+    # Use dummy cache backend for tests (no Redis needed)
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        }
+    }
+    
+    # Use database sessions instead of cache for tests
+    SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+    
+    # Disable Celery for tests (use eager mode)
+    CELERY_TASK_ALWAYS_EAGER = True
+    CELERY_TASK_EAGER_PROPAGATES = True
+    CELERY_BROKER_URL = 'memory://'
+    CELERY_RESULT_BACKEND = 'cache+memory://'
+    
+    # Reduce logging in tests
+    LOGGING['loggers']['django']['level'] = 'WARNING'
+    LOGGING['loggers']['service']['level'] = 'WARNING'

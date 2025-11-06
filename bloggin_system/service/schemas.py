@@ -1,6 +1,7 @@
-from pydantic import BaseModel
-from typing import List, Optional
+from pydantic import BaseModel, field_serializer, model_validator
+from typing import List, Optional, Union
 from datetime import datetime
+from service.models import CustomUser
 
 class UserSerializer(BaseModel):
     id: int
@@ -16,7 +17,13 @@ class ArticleSerializer(BaseModel):
     tags: Optional[str] = None
 
     model_config = {"from_attributes": True}
-        
+
+    @field_serializer('author')
+    def serialize_author(self, author: Union[dict, CustomUser], _info):
+        if isinstance(author, CustomUser):
+            return UserSerializer(id=author.id, username=author.username, email=author.email)
+        return author
+
 class FAQSerializer(BaseModel):
     id: int
     question: str
@@ -24,6 +31,10 @@ class FAQSerializer(BaseModel):
     created_by: UserSerializer
 
     model_config = {"from_attributes": True}
+
+    @field_serializer('created_by')
+    def serialize_created_by(self, created_by: CustomUser, _info):
+        return UserSerializer(id=created_by.id, username=created_by.username, email=created_by.email)
 
 class CategorySerializer(BaseModel):
     id: int
@@ -39,3 +50,7 @@ class CommentSerializer(BaseModel):
     created_at: datetime
 
     model_config = {"from_attributes": True}
+
+    @field_serializer('user')
+    def serialize_user(self, user: CustomUser, _info):
+        return UserSerializer(id=user.id, username=user.username, email=user.email)

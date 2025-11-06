@@ -2,7 +2,8 @@ import os
 import django
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bloggin_system.settings")
-django.setup()
+if not django.apps.apps.ready:
+    django.setup()
 
 from fastapi import FastAPI
 from service.api import articles, users, categories, faqs

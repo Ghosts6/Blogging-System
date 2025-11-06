@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from typing import List
-from service.schemas import ArticleSerializer, CommentSerializer
+from service.schemas import ArticleSerializer, CommentSerializer, UserSerializer
 from service.models import Article, Comment
 from rest_framework.authtoken.models import Token
 from fastapi.security import OAuth2PasswordBearer
@@ -31,14 +31,40 @@ def list_articles(author: str = None, category: str = None, tags: str = None, se
     if search:
         articles = articles.filter(Q(title__icontains=search) | Q(content__icontains=search))
     articles = articles[skip : skip + limit]
-    return [ArticleSerializer.from_orm(article) for article in articles]
+    result = []
+    for article in articles:
+        result.append(ArticleSerializer(
+            id=article.id,
+            title=article.title,
+            content=article.content,
+            author=UserSerializer(
+                id=article.author.id,
+                username=article.author.username,
+                email=article.author.email
+            ),
+            published_date=article.published_date,
+            tags=article.tags
+        ))
+    return result
 
 @router.post("/articles/", response_model=ArticleSerializer)
 def create_article(article: ArticleCreate, token: str = Depends(oauth2_scheme)):
     try:
         user = Token.objects.get(key=token).user
         new_article = Article.objects.create(title=article.title, content=article.content, tags=article.tags, author=user)
-        return ArticleSerializer.from_orm(new_article)
+        # Manually construct serializer to handle author relationship
+        return ArticleSerializer(
+            id=new_article.id,
+            title=new_article.title,
+            content=new_article.content,
+            author=UserSerializer(
+                id=user.id,
+                username=user.username,
+                email=user.email
+            ),
+            published_date=new_article.published_date,
+            tags=new_article.tags
+        )
     except Token.DoesNotExist:
         raise HTTPException(status_code=401, detail="Invalid token")
 
@@ -46,7 +72,19 @@ def create_article(article: ArticleCreate, token: str = Depends(oauth2_scheme)):
 def get_article(article_id: int):
     try:
         article = Article.objects.get(id=article_id)
-        return ArticleSerializer.from_orm(article)
+        # Manually construct serializer to handle author relationship
+        return ArticleSerializer(
+            id=article.id,
+            title=article.title,
+            content=article.content,
+            author=UserSerializer(
+                id=article.author.id,
+                username=article.author.username,
+                email=article.author.email
+            ),
+            published_date=article.published_date,
+            tags=article.tags
+        )
     except Article.DoesNotExist:
         raise HTTPException(status_code=404, detail="Article not found")
 
@@ -59,7 +97,19 @@ def update_article(article_id: int, article: ArticleCreate, token: str = Depends
         existing_article.content = article.content
         existing_article.tags = article.tags
         existing_article.save()
-        return ArticleSerializer.from_orm(existing_article)
+        # Manually construct serializer to handle author relationship
+        return ArticleSerializer(
+            id=existing_article.id,
+            title=existing_article.title,
+            content=existing_article.content,
+            author=UserSerializer(
+                id=user.id,
+                username=user.username,
+                email=user.email
+            ),
+            published_date=existing_article.published_date,
+            tags=existing_article.tags
+        )
     except Token.DoesNotExist:
         raise HTTPException(status_code=401, detail="Invalid token")
     except Article.DoesNotExist:
@@ -86,7 +136,18 @@ def create_comment(article_id: int, comment: CommentCreate, token: str = Depends
         article = Article.objects.get(id=article_id)
         new_comment = Comment.objects.create(article=article, user=user, content=comment.content)
         send_comment_notification_email.delay(article.author.email, article.title)
-        return CommentSerializer.from_orm(new_comment)
+        # Manually construct serializer to handle user relationship
+        return CommentSerializer(
+            id=new_comment.id,
+            article_id=article.id,
+            user=UserSerializer(
+                id=user.id,
+                username=user.username,
+                email=user.email
+            ),
+            content=new_comment.content,
+            created_at=new_comment.created_at
+        )
     except Token.DoesNotExist:
         raise HTTPException(status_code=401, detail="Invalid token")
     except Article.DoesNotExist:
@@ -97,6 +158,19 @@ def list_comments(article_id: int):
     try:
         article = Article.objects.get(id=article_id)
         comments = article.comments.all()
-        return [CommentSerializer.from_orm(comment) for comment in comments]
+        result = []
+        for comment in comments:
+            result.append(CommentSerializer(
+                id=comment.id,
+                article_id=article.id,
+                user=UserSerializer(
+                    id=comment.user.id,
+                    username=comment.user.username,
+                    email=comment.user.email
+                ),
+                content=comment.content,
+                created_at=comment.created_at
+            ))
+        return result
     except Article.DoesNotExist:
         raise HTTPException(status_code=404, detail="Article not found")

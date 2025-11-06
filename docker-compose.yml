@@ -65,12 +65,14 @@ services:
 
   test:
     build: .
-    command: ["pytest"]
+    command: sh -c "PGPASSWORD=\$POSTGRES_PASSWORD psql -h db -U \$POSTGRES_USER -d postgres -c \"SELECT pg_terminate_backend(pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'test_db_for_pytest' AND pid <> pg_backend_pid();\" 2>/dev/null || true && pytest"
     env_file:
       - ./.env
     depends_on:
       db:
         condition: service_healthy
+    volumes:
+      - .:/app
 
 volumes:
   postgres_data:

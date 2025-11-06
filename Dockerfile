@@ -12,7 +12,7 @@ WORKDIR /app
 RUN echo "deb http://mirror.leaseweb.com/debian/ trixie main" > /etc/apt/sources.list && \
     apt-get clean && \
     apt-get update && \
-    apt-get install -y build-essential libpq-dev
+    apt-get install -y build-essential libpq-dev postgresql-client
 
 # Install dependencies
 COPY requirements.txt /app/
