@@ -13,13 +13,18 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Build the Docker images
+    - name: Build Docker images
       run: docker compose build
 
-    - name: Run tests
+    - name: Run Django tests
       run: |
         echo "POSTGRES_DB=test_db_for_pytest" > .env 
         echo "POSTGRES_USER=test_user" >> .env
         echo "POSTGRES_PASSWORD=test_password" >> .env
         echo "SECRET_KEY=test_secret_key" >> .env
+
         docker compose run --rm test
+
+    - name: Clean up
+      if: always()
+      run: docker compose down -v

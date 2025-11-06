@@ -67,7 +67,7 @@ services:
     build: .
     command: >
       sh -c "
-        python bloggin_system/manage.py makemigrations --noinput &&
+        python bloggin_system/manage.py makemigrations service --noinput &&
         python bloggin_system/manage.py migrate --noinput &&
         pytest
       "
