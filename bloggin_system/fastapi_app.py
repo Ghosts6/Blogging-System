@@ -1,8 +1,9 @@
 import os
 import django
+from django.apps import apps
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bloggin_system.settings")
-if not django.apps.apps.ready:
+if not apps.ready:
     django.setup()
 
 from fastapi import FastAPI
