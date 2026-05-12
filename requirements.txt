@@ -18,6 +18,6 @@ flake8==5.0.4
 whitenoise==6.2.0
 django-cors-headers==3.13.0
 python-multipart
-Pillow==10.4.0
+Pillow>=12.2.0
 httpx
 pytest-mock
